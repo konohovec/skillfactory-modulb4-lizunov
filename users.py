@@ -40,7 +40,7 @@ def request_data():
         first_name=first_name,
         last_name=last_name,
         gender=gender,
-        email=email
+        email=email,
         birthdate=birthdate,
         height=height
     )
