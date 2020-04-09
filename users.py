@@ -10,7 +10,6 @@ Base = declarative_base()
 
 
 class User(Base):
-    
     __tablename__ = 'user'
 
     id = sa.Column(sa.String(36), primary_key=True)
@@ -23,8 +22,6 @@ class User(Base):
 
 
 def connect_db():
-    
-
     engine = sa.create_engine(DB_PATH)
     Base.metadata.create_all(engine)
     session = sessionmaker(engine)
@@ -32,7 +29,6 @@ def connect_db():
 
 
 def request_data():
-   
     print("Привет! Я запишу твои данные!")
     first_name = input("Введи своё имя: ")
     last_name = input("А теперь фамилию: ")
@@ -57,7 +53,6 @@ def main():
     session.add(user)
     session.commit()
     print("Твои данные сохранены в базе данных. Спасибо!")
-
 
 if __name__ == "__main__":
     main()
