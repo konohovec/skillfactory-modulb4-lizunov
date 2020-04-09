@@ -10,9 +10,7 @@ Base = declarative_base()
 
 
 class User(Base):
-    """
-    Описывает структуру таблицы athelete, содержащую данные об атлетах
-    """
+    
     __tablename__ = 'user'
 
     id = sa.Column(sa.String(36), primary_key=True)
@@ -25,9 +23,7 @@ class User(Base):
 
 
 def connect_db():
-    """
-    Устанавливает соединение к базе данных, создает таблицы, если их еще нет и возвращает объект сессии 
-    """
+    
 
     engine = sa.create_engine(DB_PATH)
     Base.metadata.create_all(engine)
@@ -36,9 +32,7 @@ def connect_db():
 
 
 def request_data():
-    """
-    Запрашивает у пользователя данные и добавляет их в список users
-    """
+   
     print("Привет! Я запишу твои данные!")
     first_name = input("Введи своё имя: ")
     last_name = input("А теперь фамилию: ")
@@ -57,9 +51,7 @@ def request_data():
     return user
 
 def main():
-    """
-    Осуществляет взаимодействие с пользователем, обрабатывает пользовательский ввод
-    """
+    
     session = connect_db()
     user = request_data()
     session.add(user)
